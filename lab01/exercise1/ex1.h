@@ -1,7 +1,7 @@
 #ifndef EX_1_H
 #define EX_1_H
 
-typedef struct DNA_sequence {
+typedef struct {
     char sequence [21];
     int A_count;
     int C_count;
