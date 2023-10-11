@@ -84,3 +84,4 @@ void add_to_back(Node **head, int data) {
     }
     prev->next = new_node;
 }
+//editing to checl

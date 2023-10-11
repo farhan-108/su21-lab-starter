@@ -22,3 +22,17 @@ main:
 
 factorial:
     # YOUR CODE HERE
+    # Multiply t0 (result) by a0
+    addi t0, x0, 1
+    factorial_loop:
+    mul t0, t0, a0
+    
+    # Decrement a0 by 1
+    addi a0, a0, -1
+    
+    # Check if a0 is greater than 1, if yes, continue the loop
+    bnez a0, factorial_loop
+    mv a0, t0
+    ret
+    
+    

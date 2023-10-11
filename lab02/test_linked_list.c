@@ -21,9 +21,9 @@ int main(int argc, char **argv) {
         assert(curr->data == expected_values[i]);
         curr = curr->next;
     }
-    free_list(head);
+   // free_list(head);
 
-    printf("Congrats! You have passed the reverse_list test!\n\n");
+   // printf("Congrats! You have passed the reverse_list test!\n\n");
 
     /************ add_to_back test ***********/
     Node *head_2 = NULL;

@@ -23,7 +23,7 @@ accumulatorone:
 	sw ra 4(sp)
 	addi a0 a0 4
 	jal accumulatorone
-	lw t1 0(sp)
+	lw t1 0(sp)#s0 is not retrive back, t1 is retried which was not stacked 
 	lw ra 4(sp)
 	addi sp sp 8
 	add a0 a0 t1
@@ -33,14 +33,14 @@ Endone:
 	jr ra
 
 accumulatortwo:
-	addi sp sp 4
+	addi sp sp 4 #epilog is writen first, prolog is not written 
 	sw s0 0(sp)
 	li t0 0
-	li s0 0
+	li s0 0 #prolog is not called
 Looptwo:
-	slli t1 t0 2
+	slli t1 t0 2 #2 is there instead of 4
 	add t2 a0 t1
-	lw t3 0(t2)
+	lw t3 0(t2) 
 	add s0 s0 t3
 	addi t0 t0 1
 	bnez t3 Looptwo
@@ -57,7 +57,7 @@ accumulatorthree:
 	sw ra 4(sp)
 	lw s0 0(a0)
 	beq s0 x0 TailCasethree
-	addi a0 a0 4
+	addi a0 a0 4  
 	jal accumulatorthree
 	add a0 a0 s0
 	j Epiloguethree
@@ -84,8 +84,8 @@ accumulatorfive:
 	addi sp sp -8
 	sw s0 0(sp)
 	sw ra 4(sp)
-	mv s0 a0
-	lw a0 0(a0)
+	mv s0 a0   #should be use addi
+	lw a0 0(a0) # loopfive function is not called there
 Loopfive:
 	addi s0 s0 4
 	lw t0 0(s0)
